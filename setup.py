@@ -48,7 +48,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Topic :: System :: Systems Administrationt',
+        'Topic :: System :: Systems Administration',
         'Programming Language :: Python',
     ],
 )
