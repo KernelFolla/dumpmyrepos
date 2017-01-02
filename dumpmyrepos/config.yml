@@ -1,0 +1,41 @@
+#command:
+#  cmd_clone: "git clone --mirror"
+#  cmd_update: "git remote update --prune"
+#  base_path: ./git
+#  dry_run: false
+#  quiet: true
+#  verbose: true
+#  max_attempts: 4
+#  parallel_downlods: 1
+services:
+  gitlab:
+    type: gitlab
+    auth:
+      url: https://gitlab.com
+      private_token: XXXXXXXXXXXXXXXXXXXX
+#      email: ...
+#      password: ...,
+#      http_username: ...
+#      http_password: ...
+  bitbucket:
+    type: bitbucket
+    auth:
+      client_key: XXXXXXXXXXXXXXXXXX
+      client_secret: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#      username: ...
+#      password: ...
+#      client_email: ...
+#      server_base_uri: ...
+  github:
+    type: github
+    auth:
+      user: yourusername
+      token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+#      login: ...
+#      password: ...
+#  something:
+#    type: git
+#    repositories:
+#      - git@github.com:Tencent/mars.git
+#      - git@github.com:ZuzooVn/machine-learning-for-software-engineers.git
+#      - git@github.com:FreeCodeCamp/FreeCodeCamp.git
