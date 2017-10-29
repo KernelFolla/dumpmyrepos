@@ -5,16 +5,14 @@ from .bitbucket import BitbucketAccount
 from .github import GithubAccount
 from .gitlab import GitlabAccount
 
-
-def factory(name, config):
-    # type: (str, object) -> GitAccount
-    class_ = classes[config['type']]
-    return class_(name, config)
-
-
-classes = {
+CLASSES = {
     'git': GitAccount,
     'gitlab': GitlabAccount,
     'bitbucket': BitbucketAccount,
-    'github': GithubAccount,
+    'github': GithubAccount
 }
+
+
+def factory(name, config):
+    # type: (str, object) -> GitAccount
+    return CLASSES[config['type']](name, config)

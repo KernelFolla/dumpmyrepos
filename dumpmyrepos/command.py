@@ -13,14 +13,14 @@ import logging
 
 class Command:
     def __init__(self, settings):
-        self._verbose = settings['verbose'] if 'verbose' in settings else False
-        self._quiet = settings['quiet'] if 'quiet' in settings else False
-        self._dry_run = settings['dry_run'] if 'dry_run' in settings else False
-        self._max_attempts = settings['max_attempts'] if 'max_attempts' in settings else 4
-        self._cmd_clone = settings['cmd_clone'] if 'cmd_clone' in settings else "git clone --mirror"
-        self._cmd_update = settings['cmd_update'] if 'cmd_clone' in settings else "git remote update --prune"
-        self._base_path = os.path.abspath(settings['base_path'] if 'base_path' in settings else ".")
-        self._parallel_downloads = settings['parallel_downloads'] if 'parallel_downloads' in settings else 1
+        self._verbose = settings.get('verbose', False)
+        self._quiet = settings.get('quiet', False)
+        self._dry_run = settings.get('dry_run', False)
+        self._max_attempts = settings.get('max_attempts', 4)
+        self._cmd_clone = settings.get('cmd_clone', 'git clone --mirror')
+        self._cmd_update = settings.get('cmd_update', 'git remote update --prune')
+        self._base_path = os.path.abspath(settings.get('base_path', '.'))
+        self._parallel_downloads = settings.get('parallel_downloads', 1)
 
     def debug(self, message, output_no_verbose=False):
         """
